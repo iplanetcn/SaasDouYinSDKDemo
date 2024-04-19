@@ -144,7 +144,8 @@ class DouyinDemoApplication : Application() {
             .supportMultiProcess(true) //是否支持多进程，此处必须为true
             .build()
 
-        TTAdSdk.init(this, build, object : TTAdSdk.InitCallback {
+        TTAdSdk.init(this, build)
+        TTAdSdk.start(object : TTAdSdk.Callback {
             override fun success() {
                 Log.d(TAG, "init ttad success")
                 ThreadUtils.runOnUIThread {
@@ -156,17 +157,5 @@ class DouyinDemoApplication : Application() {
                 Log.d(TAG, "init ttad fail，code: $i, msg: $s ")
             }
         })
-//        TTAdSdk.start(object : TTAdSdk.Callback {
-//            override fun success() {
-//                Log.d(TAG, "init ttad success")
-//                ThreadUtils.runOnUIThread {
-//                    DouYinSDK.getInstance().notifyTTAdLoadFinished()
-//                }
-//            }
-//
-//            override fun fail(i: Int, s: String) {
-//                Log.d(TAG, "init ttad fail，code: $i, msg: $s ")
-//            }
-//        })
     }
 }

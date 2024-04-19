@@ -66,9 +66,9 @@ class LiveActivity : BaseActivity() {
                     action.invoke()
                 }
 
-//                override fun onLiveInitFailed(p0: String?) {
-//                    binding.tvMessage.text = "直播组件初始化失败~"
-//                }
+                override fun onLiveInitFailed(p0: String?) {
+                    binding.tvMessage.text = "直播组件初始化失败~"
+                }
             })
         }
     }
@@ -122,7 +122,7 @@ class LiveActivity : BaseActivity() {
             position,
             count,
             pullType,
-//            Bundle()
+            Bundle()
         )
     }
 

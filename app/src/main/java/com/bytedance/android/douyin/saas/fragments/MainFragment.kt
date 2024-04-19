@@ -155,9 +155,9 @@ class MainFragment : BaseFragment() {
                     action.invoke()
                 }
 
-//                override fun onLiveInitFailed(p0: String?) {
-//                    Log.e(TAG, "直播组件初始化失败~")
-//                }
+                override fun onLiveInitFailed(p0: String?) {
+                    Log.e(TAG, "直播组件初始化失败~")
+                }
             })
         }
     }

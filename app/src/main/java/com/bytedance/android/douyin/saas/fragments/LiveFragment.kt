@@ -49,10 +49,10 @@ class LiveFragment : BaseFragment() {
                     initLive()
                 }
 
-//                override fun onLiveInitFailed(message: String?) {
-//                    binding.tvLiveState.text = "直播已初始化失败~"
-//                    Toast.makeText(context, "直播初始化失败 $message", Toast.LENGTH_SHORT).show()
-//                }
+                override fun onLiveInitFailed(message: String?) {
+                    binding.tvLiveState.text = "直播已初始化失败~"
+                    Toast.makeText(context, "直播初始化失败 $message", Toast.LENGTH_SHORT).show()
+                }
             })
         }
     }
