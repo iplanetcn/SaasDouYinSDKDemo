@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/divider_transparent_8dp"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:showDividers="beginning|middle"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_video_plugin_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="小视频插件未加载"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn_open_aweme_feed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开抖音 Feed 视频"
+        android:enabled="false"/>
+
+    <Button
+        android:id="@+id/btn_open_aweme_card_demo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开视频 标准卡片"
+        android:enabled="false"/>
+
+    <Button
+        android:id="@+id/btn_open_aweme_waterfall_card_demo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开视频 瀑布流卡片"
+        android:enabled="false"/>
+
+    <Button
+        android:id="@+id/btn_open_live_demo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开直播卡片"/>
+
+    <Button
+        android:id="@+id/btn_open_live_order_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="直播订单入口(需单独支持)"/>
+
+    <Button
+        android:id="@+id/btn_open_live_hot_window"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开直播热门天窗"/>
+
+    <FrameLayout
+        android:id="@+id/layout_live_hot_window_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#10000000"/>
+</LinearLayout>

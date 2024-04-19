@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "douyin_saas_sdk_demo"

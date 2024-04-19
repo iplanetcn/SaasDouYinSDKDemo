@@ -1,0 +1,113 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk 34
+
+    namespace 'com.bytedance.android.douyin.saas'
+    defaultConfig {
+        applicationId 'com.bytedance.android.douyin.saas'
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+
+        consumerProguardFiles 'consumer-rules.pro'
+
+        ndk {
+            //noinspection ChromeOsAbiSupport
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('aos.keystore')
+            storePassword 'aos2022'
+            keyAlias 'aos'
+            keyPassword 'aos2022'
+        }
+        debug {
+            storeFile file('aos.keystore')
+            storePassword 'aos2022'
+            keyAlias 'aos'
+            keyPassword 'aos2022'
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    packagingOptions {
+        pickFirst '**/*.so'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+        aidl = false
+        compose = false
+        prefab = false
+        renderScript = false
+        resValues = false
+        shaders = false
+    }
+
+    lint {
+        // Turns off checks for the issue IDs you specify.
+        disable 'TypographyFractions', 'TypographyQuotes', 'NotifyDataSetChanged'
+        // Turns on checks for the issue IDs you specify. These checks are in
+        // addition to the default lint checks.
+        enable 'RtlHardcoded', 'RtlCompat', 'RtlEnabled'
+        // To enable checks for only a subset of issue IDs and ignore all others,
+        // list the issue IDs with the 'check' property instead. This property overrides
+        // any issue IDs you enable or disable using the properties above.
+        checkOnly 'NewApi', 'InlinedApi'
+        // If set to true, turns off analysis progress reporting by lint.
+        quiet = false
+        // If set to true (default), stops the build if errors are found.
+        abortOnError = false
+        // If set to true, lint only reports errors.
+        ignoreWarnings = false
+        // If set to true, lint also checks all dependencies as part of its analysis.
+        // Recommended for projects consisting of an app with library dependencies.
+        checkDependencies = true
+    }
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.23'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'com.pangle.cn:ads-sdk-pro:5.5.1.2'
+//    implementation 'com.pangle.cn:ads-sdk-pro:5.9.1.4'
+    implementation('com.volcengine.android:douyin_sdk:3.0.0') {
+        exclude group: 'com.bytedance.ies.social.base', module: 'downloader'
+        exclude group: 'com.volcengine', module: 'zeuslivesdkapi'
+    }
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0"
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.activity:activity:1.8.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+}

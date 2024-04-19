@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_live_room_cover"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1"
+        tools:src="@drawable/img_live_room_cover" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_live_author_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_live_room_cover"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+        tools:src="@drawable/img_live_author_avatar" />
+
+    <TextView
+        android:id="@+id/tv_author_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="主播姓名"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_live_author_avatar"
+        app:layout_constraintStart_toEndOf="@+id/iv_live_author_avatar"
+        app:layout_constraintTop_toTopOf="@+id/iv_live_author_avatar" />
+
+    <TextView
+        android:id="@+id/tv_room_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="@drawable/bg_live_status"
+        android:padding="4dp"
+        android:text="直播中"
+        android:textColor="@android:color/white"
+        android:textSize="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="@drawable/bg_live_source"
+        android:padding="4dp"
+        android:text="来自抖音"
+        android:textColor="@android:color/white"
+        android:textSize="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_room_status"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

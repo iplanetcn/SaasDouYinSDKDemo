@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">抖音demo</string>
+
+    <string name="type0">首页</string>
+    <string name="type1">直播</string>
+    <string name="type2">短视频</string>
+    <string name="type3">短剧首页</string>
+    <string name="type4">短剧轻薄</string>
+
+    <string name="series_price_des">%d 金币/集</string>
+    <string name="series_price_unlock_num">解锁后续 %d集</string>
+    <string name="series_price_package_price"> %d 金币</string>
+    <string name="series_price_title">解锁观看后续内容</string>
+    <string name="series_price_confirm_pay">确认解锁</string>
+</resources>
