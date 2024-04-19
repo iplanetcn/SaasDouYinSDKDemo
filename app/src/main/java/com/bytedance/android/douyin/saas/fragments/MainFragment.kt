@@ -22,6 +22,8 @@ import com.bytedance.android.dy.sdk.api.feed.FeedActivityConfig
 import com.bytedance.android.live.base.api.IBaseHorizontalLiveListView
 import com.bytedance.android.live.base.api.ILiveInitCallback
 import com.bytedance.android.openliveplugin.LivePluginHelper
+import com.bytedance.android.openliveplugin.LivePluginHelper.enterCommerceOrderList
+import com.bytedance.android.openliveplugin.LiveReflectFacade
 import com.google.gson.Gson
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
@@ -70,10 +72,9 @@ class MainFragment : BaseFragment() {
         binding.btnOpenLiveOrderList.setOnClickListener {
             runAfterLivePluginInit {
                 lifecycleScope.launch {
-                    delay(3000)
                     try {
                         // !!! 本功能为单独支持能力，需要提供 hostAppId 给运营侧，进行配置后才能正常使用。
-//                        LivePluginHelper.enterCommerceOrderList(activity)
+                        LivePluginHelper.enterCommerceOrderList(activity)
                     } catch (e: Exception) {
                         Toast.makeText(context, "进入订单中心失败:\n ${Gson().toJson(e)}", Toast.LENGTH_SHORT).show()
                     }
@@ -117,7 +118,7 @@ class MainFragment : BaseFragment() {
         binding.layoutLiveHotWindowContainer.removeAllViews()
         // 1. 获取接口
         var horizontalLiveListView: IBaseHorizontalLiveListView? = null
-        LivePluginHelper.getLiveRoomService()?.makeFollowListView(context, Bundle(), null)?.let { horView ->
+        LiveReflectFacade.getOuterLiveService()?.makeFollowListView(context, Bundle(), null)?.let { horView ->
                 if (horView.self() != null) {
                     horizontalLiveListView = horView
                     // 2. horView.self() 获取view，添加到布局中

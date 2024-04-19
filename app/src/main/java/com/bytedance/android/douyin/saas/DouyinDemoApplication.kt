@@ -20,9 +20,6 @@ import com.bytedance.android.dy.sdk.api.series.AoSeriesAdListener
 import com.bytedance.android.dy.sdk.api.series.AoSeriesPayResultCallback
 import com.bytedance.android.dy.sdk.api.series.AoSeriesPlayConfig
 import com.bytedance.android.dy.sdk.internal.awemeopen.series.SeriesInitConfig
-import com.bytedance.android.live.base.api.ILiveHostContextParam
-import com.bytedance.android.live.base.api.ILiveInitCallback
-import com.bytedance.android.openliveplugin.LivePluginHelper
 import com.bytedance.sdk.openadsdk.TTAdConfig
 import com.bytedance.sdk.openadsdk.TTAdConstant
 import com.bytedance.sdk.openadsdk.TTAdSdk

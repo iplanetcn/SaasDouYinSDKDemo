@@ -16,6 +16,7 @@ import com.bytedance.android.douyin.saas.databinding.ActivityLiveBinding
 import com.bytedance.android.live.base.api.ILiveInitCallback
 import com.bytedance.android.live.base.api.outer.data.RoomInfo
 import com.bytedance.android.openliveplugin.LivePluginHelper
+import com.bytedance.android.openliveplugin.LiveReflectFacade
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -49,6 +50,8 @@ class LiveActivity : BaseActivity() {
             runAfterLivePluginInit { getRoomInfoListAfterInit() }
         }
 
+        binding.tvMessage.text = "直播组件加载中..."
+
         runAfterLivePluginInit {
             getRoomInfoListAfterInit()
             createLiveCard()
@@ -76,7 +79,7 @@ class LiveActivity : BaseActivity() {
     private fun createLiveCard() {
         try {
             val preview =
-                LivePluginHelper.getLiveRoomService().liveProvider.makeStandalonePreviewView(this, 0, Bundle())
+                LiveReflectFacade.getOuterLiveService().liveProvider.makeStandalonePreviewView(this, 0, Bundle())
             binding.layoutContainer.addView(preview.view)
             preview.stream()
             preview.show()
@@ -118,7 +121,7 @@ class LiveActivity : BaseActivity() {
         val position: Int = 0 // 场景值，Int
         val count: Int = 6 // 预期获取元素个数，Int，最多为返回 6 个
         val pullType: Int = 1 // 数据获取类型，传1表示刷新，传2表示加载更多
-        return LivePluginHelper.getLiveRoomService()?.liveProvider?.getRoomInfoList(
+        return LiveReflectFacade.getOuterLiveService()?.liveProvider?.getRoomInfoList(
             position,
             count,
             pullType,

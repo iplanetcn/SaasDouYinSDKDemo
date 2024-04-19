@@ -5,17 +5,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import com.bytedance.android.douyin.saas.R
 import com.bytedance.android.douyin.saas.base.BaseFragment
 import com.bytedance.android.douyin.saas.databinding.FragmentLiveBinding
 import com.bytedance.android.live.base.api.ILiveInitCallback
 import com.bytedance.android.live.base.api.outer.ILivePreviewLayout
 import com.bytedance.android.live.base.api.outer.ILivePreviewLayout.OnRefreshListener
 import com.bytedance.android.openliveplugin.LivePluginHelper
+import com.bytedance.android.openliveplugin.LiveReflectFacade
 
 private const val TAG = "LiveFragment"
 
@@ -70,7 +67,7 @@ class LiveFragment : BaseFragment() {
             .setLiveBorderAnimController(null)//天窗头像动效自定义，传null用默认动效果。一般使用默认即可
 
         // 创建并添加view到布局
-        previewLayout = LivePluginHelper.getLiveRoomService()?.liveProvider?.getILivePreviewLayout(builder)?.also {
+        previewLayout = LiveReflectFacade.getOuterLiveService()?.liveProvider?.getILivePreviewLayout(builder)?.also {
             binding.liveLayout.removeAllViews()
             binding.liveLayout.addView(it.view)
         }
