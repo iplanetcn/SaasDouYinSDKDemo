@@ -1,2 +1,3 @@
 include ':app'
+include ':yqad'
 rootProject.name = "SaasDouYinSDKDemo"

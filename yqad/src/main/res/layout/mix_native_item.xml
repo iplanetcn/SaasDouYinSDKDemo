@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="wrap"
+        app:layout_constraintWidth_percent="0.4">
+
+        <com.yd.saas.common.widget.RoundedFrameLayout
+            android:id="@+id/media_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:radius="3dp">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/s2s_template_img_default_bg" />
+        </com.yd.saas.common.widget.RoundedFrameLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#666666"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/des"
+        app:layout_constraintLeft_toRightOf="@id/container"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="标题标题阿斯顿发送到发送阿斯顿发斯蒂芬爱上大放送" />
+
+    <TextView
+        android:id="@+id/des"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="2"
+        android:textColor="#999999"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/btn_action"
+        app:layout_constraintLeft_toLeftOf="@id/title"
+        app:layout_constraintRight_toRightOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="阿斯顿发送到发双方都下是否味儿阿斯顿发斯蒂芬阿斯顿发送到阿斯顿发送到发双方都下是否味儿阿斯顿发斯蒂芬阿斯顿发送到" />
+
+    <TextView
+        android:id="@+id/btn_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/selector_btn_download"
+        android:paddingLeft="10dp"
+        android:paddingTop="4dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="4dp"
+        android:text="点击下载"
+        android:textColor="#D00000"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/title"
+        app:layout_constraintRight_toRightOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/des" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:src="@mipmap/yd_sdk_ad_dialog_close"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_ad_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
