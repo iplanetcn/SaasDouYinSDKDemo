@@ -2,13 +2,12 @@ package com.bytedance.android.douyin.saas.live
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Space
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bytedance.android.douyin.saas.R
 import com.bytedance.android.douyin.saas.base.BaseActivity
@@ -16,6 +15,7 @@ import com.bytedance.android.douyin.saas.databinding.ActivityLiveBinding
 import com.bytedance.android.live.base.api.ILiveInitCallback
 import com.bytedance.android.live.base.api.outer.data.RoomInfo
 import com.bytedance.android.openliveplugin.LivePluginHelper
+import com.bytedance.android.openliveplugin.LivePluginHelper.enterCommerceOrderList
 import com.bytedance.android.openliveplugin.LiveReflectFacade
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -132,5 +132,17 @@ class LiveActivity : BaseActivity() {
     override fun onDestroy() {
         super.onDestroy()
         ioScope?.cancel()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_live, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_enter_live_orders) {
+            LiveReflectFacade.getOuterLiveService()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

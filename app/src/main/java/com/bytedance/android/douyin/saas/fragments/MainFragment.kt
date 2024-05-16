@@ -22,10 +22,8 @@ import com.bytedance.android.dy.sdk.api.feed.FeedActivityConfig
 import com.bytedance.android.live.base.api.IBaseHorizontalLiveListView
 import com.bytedance.android.live.base.api.ILiveInitCallback
 import com.bytedance.android.openliveplugin.LivePluginHelper
-import com.bytedance.android.openliveplugin.LivePluginHelper.enterCommerceOrderList
 import com.bytedance.android.openliveplugin.LiveReflectFacade
 import com.google.gson.Gson
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -70,15 +68,11 @@ class MainFragment : BaseFragment() {
         }
 
         binding.btnOpenLiveOrderList.setOnClickListener {
-            runAfterLivePluginInit {
-                lifecycleScope.launch {
-                    try {
-                        // !!! 本功能为单独支持能力，需要提供 hostAppId 给运营侧，进行配置后才能正常使用。
-                        LivePluginHelper.enterCommerceOrderList(activity)
-                    } catch (e: Exception) {
-                        Toast.makeText(context, "进入订单中心失败:\n ${Gson().toJson(e)}", Toast.LENGTH_SHORT).show()
-                    }
-                }
+            try {
+                // !!! 本功能为单独支持能力，需要提供 hostAppId 给运营侧，进行配置后才能正常使用。
+
+            } catch (e: Exception) {
+                Toast.makeText(context, "进入订单中心失败:\n ${Gson().toJson(e)}", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -106,9 +100,14 @@ class MainFragment : BaseFragment() {
 
                 override fun onInitializeFail(code: Int) {
                     Log.d(TAG, "初始化失败, 错误码${code}")
+                    binding.btnOpenAwemeFeed.isEnabled = false
+                    binding.btnOpenAwemeCardDemo.isEnabled = false
+                    binding.btnOpenAwemeWaterfallCardDemo.isEnabled = false
                 }
             })
         }
+
+        // 注册小视频插件加载监听
         DouYinSDK.getInstance().registerPluginLoadListener { _, eventMsg ->
             binding.tvVideoPluginState.text = "小视频插件加载状态: $eventMsg"
         }
