@@ -70,7 +70,7 @@ class MainFragment : BaseFragment() {
         binding.btnOpenLiveOrderList.setOnClickListener {
             try {
                 // !!! 本功能为单独支持能力，需要提供 hostAppId 给运营侧，进行配置后才能正常使用。
-
+                LivePluginHelper.enterCommerceOrderList(requireActivity())
             } catch (e: Exception) {
                 Toast.makeText(context, "进入订单中心失败:\n ${Gson().toJson(e)}", Toast.LENGTH_SHORT).show()
             }

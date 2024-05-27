@@ -84,7 +84,7 @@ object DouyinSdkManager {
                 AoSeriesPlayConfig {
                 override fun showAd(activity: Activity, listener: AoSeriesAdListener) {
                     //进入激励广告
-                    TTAdController.initAd(activity, listener)
+                    TTAdCon troller.initAd(activity, listener)
                 }
 
                 override fun getLockIndexAndUnLockNum(p0: Long?): Pair<Int, Int> {

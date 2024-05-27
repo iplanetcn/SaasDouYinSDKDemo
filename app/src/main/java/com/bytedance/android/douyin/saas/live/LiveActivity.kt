@@ -15,7 +15,6 @@ import com.bytedance.android.douyin.saas.databinding.ActivityLiveBinding
 import com.bytedance.android.live.base.api.ILiveInitCallback
 import com.bytedance.android.live.base.api.outer.data.RoomInfo
 import com.bytedance.android.openliveplugin.LivePluginHelper
-import com.bytedance.android.openliveplugin.LivePluginHelper.enterCommerceOrderList
 import com.bytedance.android.openliveplugin.LiveReflectFacade
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -141,7 +140,7 @@ class LiveActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_enter_live_orders) {
-            LiveReflectFacade.getOuterLiveService()
+            LivePluginHelper.enterCommerceOrderList(this)
         }
         return super.onOptionsItemSelected(item)
     }

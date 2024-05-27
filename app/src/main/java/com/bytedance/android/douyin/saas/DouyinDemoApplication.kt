@@ -1,29 +1,5 @@
 package com.bytedance.android.douyin.saas
-
-import android.app.Activity
 import android.app.Application
-import android.util.Log
-import android.util.Pair
-import android.view.View
-import com.bytedance.android.douyin.saas.series.SeriesPayContentView
-import com.bytedance.android.douyin.saas.series.ad.HostSeriesInsertAdProviderImpl
-import com.bytedance.android.douyin.saas.series.ad.SeriesDrawAdConfigImpl
-import com.bytedance.android.douyin.saas.series.pay.DemoPackagePrice
-import com.bytedance.android.douyin.saas.series.pay.DemoPriceDetail
-import com.bytedance.android.douyin.saas.ttad.TTAdController
-import com.bytedance.android.douyin.saas.utils.ThreadUtils
-import com.bytedance.android.dy.sdk.DouYinSDK
-import com.bytedance.android.dy.sdk.api.InitializeListener
-import com.bytedance.android.dy.sdk.api.SdkInitConfig
-import com.bytedance.android.dy.sdk.api.privacy.DYPrivacyConfig
-import com.bytedance.android.dy.sdk.api.series.AoSeriesAdListener
-import com.bytedance.android.dy.sdk.api.series.AoSeriesPayResultCallback
-import com.bytedance.android.dy.sdk.api.series.AoSeriesPlayConfig
-import com.bytedance.android.dy.sdk.internal.awemeopen.series.SeriesInitConfig
-import com.bytedance.sdk.openadsdk.TTAdConfig
-import com.bytedance.sdk.openadsdk.TTAdConstant
-import com.bytedance.sdk.openadsdk.TTAdSdk
-import org.json.JSONObject
 
 /**
  * 应用 Application
